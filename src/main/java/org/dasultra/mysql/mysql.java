@@ -8,27 +8,27 @@ import org.dasultra.file.FileManager;
 public class mysql {
 
     public static String getHost() {
-        FileManager mysql = new FileManager("plugins/CoreSystem/MySQL.yml");
+        FileManager mysql = new FileManager("plugins/PlayerStats/MySQL.yml");
         return mysql.getString("Host");
     }
 
     public static String getPort() {
-        FileManager mysql = new FileManager("plugins/CoreSystem/MySQL.yml");
+        FileManager mysql = new FileManager("plugins/PlayerStats/MySQL.yml");
         return mysql.getString("Port");
     }
 
     public static String getDatabase() {
-        FileManager mysql = new FileManager("plugins/CoreSystem/MySQL.yml");
+        FileManager mysql = new FileManager("plugins/PlayerStats/MySQL.yml");
         return mysql.getString("Database");
     }
 
     public static String getUsername() {
-        FileManager mysql = new FileManager("plugins/CoreSystem/MySQL.yml");
+        FileManager mysql = new FileManager("plugins/PlayerStats/MySQL.yml");
         return mysql.getString("Username");
     }
 
     public static String getPassword() {
-        FileManager mysql = new FileManager("plugins/CoreSystem/MySQL.yml");
+        FileManager mysql = new FileManager("plugins/PlayerStats/MySQL.yml");
         return mysql.getString("Password");
     }
 

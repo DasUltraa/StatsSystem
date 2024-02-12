@@ -9,4 +9,3 @@ website: https://team-ultra.eu
 commands:
   stats:
     description: PlayerStats
-    usage: /stats <player>

@@ -17,25 +17,27 @@ public class CommandStats implements CommandExecutor, TabCompleter {
         if (sender instanceof Player p) {
             if (args.length == 0) {
                 p.sendMessage("§7§m-------------------------");
-                p.sendMessage("§6§lStats of" + p.getName());
+                p.sendMessage("§6§lStats of " + p.getName());
                 p.sendMessage("§7§m-------------------------");
                 p.sendMessage("§6Kills: §7" + mysql.getKills(p.getUniqueId()));
                 p.sendMessage("§6Deaths: §7" + mysql.getDeaths(p.getUniqueId()));
-                p.sendMessage("§6KDR: §7" + "0");
+                p.sendMessage("§6KDR: §7" + mysql.getKills(p.getUniqueId()) / mysql.getDeaths(p.getUniqueId()));
                 p.sendMessage("§7§m-------------------------");
             } else if (args.length == 1) {
                 Player t = Bukkit.getPlayer(args[0]);
                 if (t != null) {
                     p.sendMessage("§7§m-------------------------");
-                    p.sendMessage("§6§lStats of" + t.getName());
+                    p.sendMessage("§6§lStats of " + t.getName());
                     p.sendMessage("§7§m-------------------------");
                     p.sendMessage("§6Kills: §7" + mysql.getKills(t.getUniqueId()));
                     p.sendMessage("§6Deaths: §7" + mysql.getDeaths(t.getUniqueId()));
-                    p.sendMessage("§6KDR: §7" + "0");
+                    p.sendMessage("§6KDR: §7" + mysql.getKills(t.getUniqueId()) / mysql.getDeaths(t.getUniqueId()));
                     p.sendMessage("§7§m-------------------------");
                 } else {
                     p.sendMessage("§cPlayer not found.");
                 }
+            } else {
+                p.sendMessage("§cUsage: /stats [player]");
             }
         }
         return false;

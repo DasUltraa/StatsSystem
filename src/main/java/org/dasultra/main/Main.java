@@ -4,9 +4,14 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.dasultra.commands.CommandStats;
+import org.dasultra.file.FileManager;
+import org.dasultra.listener.DeathListener;
+import org.dasultra.listener.JoinListener;
+import org.dasultra.listener.KillListener;
 import org.dasultra.mysql.mysql;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public final class Main extends JavaPlugin {
 
@@ -21,6 +26,8 @@ public final class Main extends JavaPlugin {
 
         plugin = this;
 
+        databaseConfig();
+
         try {
             mysql.connect();
             Bukkit.getConsoleSender().sendMessage("§aMySQL connected Successfully!");
@@ -33,10 +40,26 @@ public final class Main extends JavaPlugin {
 
         getCommand("stats").setExecutor(new CommandStats());
         getCommand("stats").setTabCompleter(new CommandStats());
+
+        getServer().getPluginManager().registerEvents(new DeathListener(), this);
+        getServer().getPluginManager().registerEvents(new KillListener(), this);
+        getServer().getPluginManager().registerEvents(new JoinListener(), this);
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        System.out.print("StatsSystem is stopping");
+    }
+
+    private void databaseConfig() {
+        FileManager mysql = new FileManager("plugins/PlayerStats/MySQL.yml");
+
+        mysql.add("Host", "127.0.0.1");
+        mysql.add("Port", "3306");
+        mysql.add("Username", "user");
+        mysql.add("Password", "password");
+        mysql.add("Database", "database");
+
+        mysql.save();
     }
 }
