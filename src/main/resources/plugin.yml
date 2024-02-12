@@ -1,0 +1,7 @@
+name: PlayerStats
+version: '${version}'
+main: org.dasultra.main.Main
+api-version: '1.20'
+authors: [DasUltra]
+description: PlayerStats
+website: https://team-ultra.eu
