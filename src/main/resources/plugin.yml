@@ -5,3 +5,8 @@ api-version: '1.20'
 authors: [DasUltra]
 description: PlayerStats
 website: https://team-ultra.eu
+
+commands:
+  stats:
+    description: PlayerStats
+    usage: /stats <player>
