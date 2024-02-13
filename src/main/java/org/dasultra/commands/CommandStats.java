@@ -6,7 +6,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
-import org.dasultra.file.FileManager;
 import org.dasultra.mysql.mysql;
 
 import java.util.List;
@@ -21,7 +20,7 @@ public class CommandStats implements CommandExecutor, TabCompleter {
                 p.sendMessage("§7§m-------------------------");
                 p.sendMessage("§6Kills: §7" + mysql.getKills(p.getUniqueId()));
                 p.sendMessage("§6Deaths: §7" + mysql.getDeaths(p.getUniqueId()));
-                p.sendMessage("§6KDR: §7" + mysql.getKills(p.getUniqueId()) / mysql.getDeaths(p.getUniqueId()));
+                p.sendMessage("§6K/D: §7" + mysql.getKills(p.getUniqueId()) / mysql.getDeaths(p.getUniqueId()));
                 p.sendMessage("§7§m-------------------------");
             } else if (args.length == 1) {
                 Player t = Bukkit.getPlayer(args[0]);
@@ -31,7 +30,7 @@ public class CommandStats implements CommandExecutor, TabCompleter {
                     p.sendMessage("§7§m-------------------------");
                     p.sendMessage("§6Kills: §7" + mysql.getKills(t.getUniqueId()));
                     p.sendMessage("§6Deaths: §7" + mysql.getDeaths(t.getUniqueId()));
-                    p.sendMessage("§6KDR: §7" + mysql.getKills(t.getUniqueId()) / mysql.getDeaths(t.getUniqueId()));
+                    p.sendMessage("§6K/D: §7" + mysql.getKills(t.getUniqueId()) / mysql.getDeaths(t.getUniqueId()));
                     p.sendMessage("§7§m-------------------------");
                 } else {
                     p.sendMessage("§cPlayer not found.");

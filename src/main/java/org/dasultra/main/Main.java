@@ -11,7 +11,6 @@ import org.dasultra.listener.KillListener;
 import org.dasultra.mysql.mysql;
 
 import java.sql.SQLException;
-import java.util.List;
 
 public final class Main extends JavaPlugin {
 
