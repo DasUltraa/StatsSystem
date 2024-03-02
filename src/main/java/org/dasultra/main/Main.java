@@ -7,7 +7,6 @@ import org.dasultra.commands.CommandStats;
 import org.dasultra.file.FileManager;
 import org.dasultra.listener.DeathListener;
 import org.dasultra.listener.JoinListener;
-import org.dasultra.listener.KillListener;
 import org.dasultra.mysql.mysql;
 
 import java.sql.SQLException;
@@ -41,7 +40,6 @@ public final class Main extends JavaPlugin {
         getCommand("stats").setTabCompleter(new CommandStats());
 
         getServer().getPluginManager().registerEvents(new DeathListener(), this);
-        getServer().getPluginManager().registerEvents(new KillListener(), this);
         getServer().getPluginManager().registerEvents(new JoinListener(), this);
     }
 
